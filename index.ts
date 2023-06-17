@@ -93,3 +93,57 @@ if (age > 18) {
 else {
     console.log("You are still a child")
 }
+
+//For loop
+//Function
+function Sum(a: number, b: number) {
+    return a + b;
+}
+
+const sum2 = (a: number, b: number): never => {
+    throw console.log(a + b);
+}
+console.log(sum2);
+
+//Function optional parameters
+function sum3(x: number, y: number, z?: number): number {
+    console.log(">>> z = ", z);
+    if (z) {
+        return x + y + z;
+    }
+    return x + y;
+}
+console.log(">>> sum3 = ", sum3(1, 2));
+
+//default parameters
+function sum4(x: number, y: number, z: number = 0): number {
+    console.log(">>> z = ", z);
+    if (z) {
+        return x + y + z;
+    }
+    return x + y;
+}
+console.log(">>> sum3 = ", sum4(1, 2), sum4(1, 2, 3));
+
+//Rest parameters => ... always put last
+function restTest(...integer: number[]): number {
+    let total = 0;
+    integer.forEach((num) => {
+        total += num;
+    });
+    return total;
+}
+console.log(restTest());
+console.log(restTest(10, 20));
+console.log(restTest(10, 20, 30));
+
+function test(n: number, ...array: number[]): number[] {
+    //map => return new array
+    return array.map((x) => x * n);
+}
+console.log(">>> result = ", test(10, 1, 2, 3, 4, 5));
+
+function sayHello(text: string, ...array: string[]): string {
+    return text + " " + array.join(", ") + "!";
+}
+console.log(">>> Welcomes to: ", sayHello("Hello", "Hường", "Yến", "Mai"));
